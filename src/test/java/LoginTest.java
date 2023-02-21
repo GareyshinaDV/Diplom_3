@@ -1,28 +1,23 @@
-import Api.UserApi;
-import Api.UserData;
-import PageObject.LoginPage;
-import PageObject.MainPage;
-import PageObject.RecoveryPage;
-import PageObject.RegisterPage;
+import api.UserApi;
+import api.UserData;
+import pageobject.LoginPage;
+import pageobject.MainPage;
+import pageobject.RecoveryPage;
+import pageobject.RegisterPage;
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import static PageObject.Constants.*;
+import static pageobject.Constants.*;
 import static org.openqa.selenium.By.xpath;
 
-public class LoginTest {
-
-    private WebDriver driver;
+public class LoginTest extends BaseTest{
 
     private String token;
 
@@ -31,9 +26,6 @@ public class LoginTest {
         UserApi user = new UserApi(email, password, name);
         user.creationOfUser(user);
         token = user.authorizationOfUser(user).as(UserData.class).getAccessToken();
-
-        ChromeOptions options = new ChromeOptions();
-        driver = new ChromeDriver(options);
         driver.get(MAIN_PAGE_URL);
     }
 

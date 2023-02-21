@@ -1,28 +1,20 @@
-import PageObject.MainPage;
+import pageobject.MainPage;
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import static PageObject.Constants.MAIN_PAGE_URL;
+import static pageobject.Constants.MAIN_PAGE_URL;
 import static org.openqa.selenium.By.xpath;
 
-public class ConstructorTest {
-
-    private WebDriver driver;
+public class ConstructorTest extends BaseTest {
 
     @Before
     public void setUp(){
-
-        ChromeOptions options = new ChromeOptions();
-        driver = new ChromeDriver(options);
         driver.get(MAIN_PAGE_URL);
     }
 
